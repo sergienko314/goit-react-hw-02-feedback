@@ -12,7 +12,6 @@ class App extends Component {
   bad: 0
   }
 
-  options = (state) => {return Object.keys(state)}
 
   onLeaveFeedback = (option) => {
     // const { name } = option.target;
@@ -38,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <Section title="Pleace leave feedback">
-          <FeedbackOptions options={this.options(this.state)} onLeaveFeedback={this.onLeaveFeedback} />
+          <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.onLeaveFeedback} />
         </Section>
         <Section title={"Statistics"}>
           {this.countTotalFeedback() !== 0 ?  <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} TotalFeedback={this.countTotalFeedback} PositivePercentage={this.countPositivePercentage } />
